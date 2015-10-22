@@ -6,7 +6,9 @@ use League\Tactician\Handler\CommandHandlerMiddleware;
 use League\Tactician\Handler\MethodNameInflector\HandleInflector;
 use League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor;
 
-$map = [];
+$map = [
+    HelloWorld::class => new HelloWorldHandler
+];
 
 $handlerMiddleware = new CommandHandlerMiddleware(
     new ClassNameExtractor,
@@ -16,3 +18,6 @@ $handlerMiddleware = new CommandHandlerMiddleware(
 
 $tactician = new CommandBus([$handlerMiddleware]);
 
+$tactician->handle(
+    new HelloWorld('Hello World')
+);
