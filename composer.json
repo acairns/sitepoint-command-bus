@@ -1,4 +1,9 @@
 {
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
     "require": {
         "league/tactician": "^0.6.1"
     }
