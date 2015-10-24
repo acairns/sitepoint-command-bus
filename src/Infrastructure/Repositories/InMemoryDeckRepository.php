@@ -9,7 +9,7 @@ class InMemoryDeckRepository implements DeckRepository
     /**
      * @var Deck[]
      */
-    private $items;
+    private $items = [];
 
     /**
      * @param DeckId $deckId
