@@ -12,9 +12,9 @@ final class Suit
      */
     private static $suits = [
         's' => 'Spades',
-        'h' => 'Hearts',
         'd' => 'Diamonds',
-        'c' => 'Clubs'
+        'c' => 'Clubs',
+        'h' => 'Hearts'
     ];
 
     /**
