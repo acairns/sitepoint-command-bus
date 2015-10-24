@@ -36,4 +36,20 @@ final class Card
             Suit::fromString($suit)
         );
     }
+
+    /**
+     * @return Rank
+     */
+    public function getRank()
+    {
+        return $this->rank;
+    }
+
+    /**
+     * @return Suit
+     */
+    public function getSuit()
+    {
+        return $this->suit;
+    }
 }
