@@ -24,12 +24,13 @@ final class Deck
     }
 
     /**
+     * @param DeckId $deckId
      * @return Deck
      */
-    public static function standard()
+    public static function standard(DeckId $deckId)
     {
         return new Deck(
-            DeckId::generate(),
+            $deckId,
             [
                 Card::fromString('2s'),
                 Card::fromString('3s'),
