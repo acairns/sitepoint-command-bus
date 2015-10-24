@@ -12,8 +12,12 @@ $locator->addHandler(
     CreateDeck::class
 );
 
-$command = new CreateDeck(
-    DeckId::generate()
+$deckId = DeckId::generate();
+
+$bus->handle(
+    new CreateDeck($deckId)
 );
 
-$bus->handle($command);
+print_deck(
+    $decks->findById($deckId)
+);
