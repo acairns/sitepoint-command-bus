@@ -21,5 +21,5 @@ function print_deck(Deck $deck)
 {
     echo "Deck ID: {$deck->getId()}\n";
 
-    echo "Cards: " . join($deck->getCards(), ',') . "\n";
+    echo "Cards: " . join($deck->getCards(), ', ') . "\n";
 }
