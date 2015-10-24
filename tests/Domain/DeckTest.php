@@ -30,4 +30,28 @@ class DeckTest extends \PHPUnit_Framework_TestCase
 
         $this->assertNotEquals($before, $after);
     }
+
+    public function test_a_card_can_be_drawn_from_the_deck()
+    {
+        $deck = Deck::standard(
+            DeckId::generate()
+        );
+
+        $card = $deck->drawCard();
+
+        $this->assertEquals('As', $card);
+    }
+
+    public function test_drawing_card_removes_card_from_deck()
+    {
+        $deck = Deck::standard(
+            DeckId::generate()
+        );
+
+        $this->assertCount(52, $deck->getCards());
+
+        $deck->drawCard();
+
+        $this->assertCount(51, $deck->getCards());
+    }
 }

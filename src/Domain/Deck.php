@@ -107,6 +107,14 @@ final class Deck
         return $this->cards;
     }
 
+    /**
+     * @return Card
+     */
+    public function drawCard()
+    {
+        return array_shift($this->cards);
+    }
+
     public function shuffle()
     {
         shuffle($this->cards);
