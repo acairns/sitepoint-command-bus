@@ -15,4 +15,19 @@ class DeckTest extends \PHPUnit_Framework_TestCase
 
         $this->assertCount(52, $cards);
     }
+
+    public function test_it_can_shuffle_the_deck()
+    {
+        $deck = Deck::standard(
+            DeckId::generate()
+        );
+
+        $before = $deck->getCards();
+
+        $deck->shuffle();
+
+        $after = $deck->getCards();
+
+        $this->assertNotEquals($before, $after);
+    }
 }

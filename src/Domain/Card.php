@@ -52,4 +52,9 @@ final class Card
     {
         return $this->suit;
     }
+
+    public function __toString()
+    {
+        return (string) $this->rank . (string) $this->suit;
+    }
 }

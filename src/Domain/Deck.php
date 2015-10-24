@@ -109,6 +109,6 @@ final class Deck
 
     public function shuffle()
     {
-
+        shuffle($this->cards);
     }
 }
