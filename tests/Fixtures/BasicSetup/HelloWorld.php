@@ -1,4 +1,4 @@
-<?php
+<?php namespace DeckOfCards\Tests\Fixtures\BasicSetup;
 
 final class HelloWorld
 {
