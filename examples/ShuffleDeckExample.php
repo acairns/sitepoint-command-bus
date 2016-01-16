@@ -20,9 +20,10 @@ $locator->addHandler(
 );
 
 $bus->handle(
-    new ShuffleDeck($deckId)
+    new ShuffleDeck((string) $deckId)
 );
 
 print_deck(
     $decks->findById($deckId)
 );
+echo "\n";

@@ -15,9 +15,10 @@ $locator->addHandler(
 $deckId = DeckId::generate();
 
 $bus->handle(
-    new CreateDeck($deckId)
+    new CreateDeck((string) $deckId)
 );
 
 print_deck(
     $decks->findById($deckId)
 );
+echo "\n";

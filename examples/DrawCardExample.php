@@ -20,7 +20,8 @@ $locator->addHandler(
 );
 
 $card = $bus->handle(
-    new DrawCard($deckId)
+    new DrawCard((string) $deckId)
 );
 
-print_r($card);
+print_card($card);
+echo "\n";

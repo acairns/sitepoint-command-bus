@@ -5,14 +5,14 @@ use DeckOfCards\Domain\DeckId;
 final class ShuffleDeck
 {
     /**
-     * @var DeckId
+     * @var string
      */
     private $id;
 
     /**
-     * @param DeckId $id
+     * @param string $id
      */
-    public function __construct(DeckId $id)
+    public function __construct($id)
     {
         $this->id = $id;
     }
@@ -22,6 +22,6 @@ final class ShuffleDeck
      */
     public function getId()
     {
-        return $this->id;
+        return DeckId::fromString($this->id);
     }
 }
