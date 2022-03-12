@@ -3,20 +3,11 @@
 use DeckOfCards\Domain\Deck;
 use DeckOfCards\Domain\DeckId;
 use DeckOfCards\Application\Commands\DrawCard;
-use DeckOfCards\Application\Commands\DrawCardHandler;
-use DeckOfCards\Infrastructure\Repositories\InMemoryDeckRepository;
-
-$decks = new InMemoryDeckRepository;
 
 $deckId = DeckId::generate();
 
 $decks->add(
     Deck::standard($deckId)
-);
-
-$locator->addHandler(
-    new DrawCardHandler($decks),
-    DrawCard::class
 );
 
 $card = $bus->handle(
