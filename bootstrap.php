@@ -8,7 +8,31 @@ use League\Tactician\Handler\CommandHandlerMiddleware;
 use League\Tactician\Handler\MethodNameInflector\HandleInflector;
 use League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor;
 
+use DeckOfCards\Application\Commands\CreateDeck;
+use DeckOfCards\Application\Commands\CreateDeckHandler;
+use DeckOfCards\Application\Commands\DrawCard;
+use DeckOfCards\Application\Commands\DrawCardHandler;
+use DeckOfCards\Application\Commands\ShuffleDeck;
+use DeckOfCards\Application\Commands\ShuffleDeckHandler;
+
+use DeckOfCards\Infrastructure\Repositories\InMemoryDeckRepository;
+
+$decks = new InMemoryDeckRepository;
+
 $locator = new InMemoryLocator([]);
+
+$locator->addHandler(
+    new ShuffleDeckHandler($decks),
+    ShuffleDeck::class
+);
+$locator->addHandler(
+    new DrawCardHandler($decks),
+    DrawCard::class
+);
+$locator->addHandler(
+    new CreateDeckHandler($decks),
+    CreateDeck::class
+);
 
 $handlerMiddleware = new CommandHandlerMiddleware(
     new ClassNameExtractor,

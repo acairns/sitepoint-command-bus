@@ -2,15 +2,6 @@
 
 use DeckOfCards\Domain\DeckId;
 use DeckOfCards\Application\Commands\CreateDeck;
-use DeckOfCards\Application\Commands\CreateDeckHandler;
-use DeckOfCards\Infrastructure\Repositories\InMemoryDeckRepository;
-
-$decks = new InMemoryDeckRepository;
-
-$locator->addHandler(
-    new CreateDeckHandler($decks),
-    CreateDeck::class
-);
 
 $deckId = DeckId::generate();
 
