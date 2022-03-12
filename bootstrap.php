@@ -19,24 +19,13 @@ use DeckOfCards\Infrastructure\Repositories\InMemoryDeckRepository;
 
 $decks = new InMemoryDeckRepository;
 
-$locator = new InMemoryLocator([]);
-
-$locator->addHandler(
-    new ShuffleDeckHandler($decks),
-    ShuffleDeck::class
-);
-$locator->addHandler(
-    new DrawCardHandler($decks),
-    DrawCard::class
-);
-$locator->addHandler(
-    new CreateDeckHandler($decks),
-    CreateDeck::class
-);
-
 $handlerMiddleware = new CommandHandlerMiddleware(
     new ClassNameExtractor,
-    $locator,
+    new InMemoryLocator([
+        ShuffleDeck::class  => new ShuffleDeckHandler($decks),
+        DrawCard::class     => new DrawCardHandler($decks),
+        CreateDeck::class   => new CreateDeckHandler($decks)
+    ]),
     new HandleInflector
 );
 
